@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+}
+
+body.light {
+  background-color: #fff;
+  color: #333;
+  transition: all 300ms ease-in-out;
+}
+
+/* Dark mode styles */
+body.dark {
+  background-color: #333333;
+  color: #fff;
+}
+.main-container {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .app--mainHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    height: 3.5rem;
+    position: relative;
+    border-bottom: 1px solid rgba(156, 163, 175, 0.575);
+
+    .aboutMenu {
+      position: absolute;
+      right: 5px;
+      top: 110%;
+      width: 20rem;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filterr: blur(20px) saturate(180%);
+      overflow: hidden;
+      padding: 5px;
+      transition: all 400ms ease-in-out;
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.75);
+      border-radius: 10px;
+      z-index: 999;
+
+      .menu--lists {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        align-items: flex-start;
+        border-radius: 8px;
+        padding: 0 4px;
+
+        li {
+          width: 100%;
+          height: 2.25rem;
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          column-gap: 10px;
+          padding: 10px 5px;
+          text-transform: capitalize;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+          font-size: 14px;
+          &:hover {
+            background-color: rgba(2, 15, 15, 0.75);
+            color: white;
+          }
+          &:active {
+            opacity: 0.75;
+          }
+        }
+      }
+    }
+  }
+
+  .child-components {
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .child-components.light {
+    background-image: url(https://images.pexels.com/photos/6775241/pexels-photo-6775241.jpeg?auto=compress&cs=tinysrgb&w=600);
+  }
+  .child-components.dark {
+    background-image: url(https://images.pexels.com/photos/1114690/pexels-photo-1114690.jpeg?auto=compress&cs=tinysrgb&w=600);
+  }
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+}

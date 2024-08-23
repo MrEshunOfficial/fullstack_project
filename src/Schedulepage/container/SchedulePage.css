@@ -1,0 +1,153 @@
+.schedule-parent-folder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .schedule-main-head {
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    select {
+      background: transparent;
+
+      option {
+        font-size: 14px;
+        text-transform: capitalize;
+      }
+    }
+
+    .notify-count::after {
+      content: attr(data-count);
+      position: absolute;
+      top: 1.5px;
+      left: 25px;
+      width: 20px;
+      height: 20px;
+      font-size: 13px;
+      line-height: 20px;
+      text-align: center;
+      color: tomato;
+      font-weight: 600;
+      transform: translate(-50%, -50%);
+    }
+
+    ul :is(li) {
+      position: relative;
+
+      .total:hover::before,
+      .completed:hover::before,
+      .pending:hover::before,
+      .urgent:hover::before {
+        position: absolute;
+        bottom: 100%;
+        left: 0%;
+        font-size: 12px;
+        text-wrap: nowrap;
+        text-transform: capitalize;
+        font-weight: 500;
+      }
+
+      .total:hover::before {
+        content: "total Task";
+
+        text-wrap: nowrap;
+      }
+      .completed:hover::before {
+        content: "completed";
+      }
+      .pending:hover::before {
+        content: "pending";
+      }
+      .urgent:hover::before {
+        content: "urgent tasks";
+        left: -20%;
+      }
+    }
+    ul :is(li span) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      transition: all 0.3s ease-in-out;
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      &:active {
+        transform: translateY(4px);
+      }
+    }
+  }
+
+  .output-container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .output-containerhead {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 5px;
+      width: 100%;
+      height: 3.5rem;
+    }
+    .input-output-box {
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .schedule--output {
+      flex: 1;
+      height: 78dvh;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      transition: all 0.5s ease-in-out;
+      row-gap: 10px;
+      padding: 5px;
+      border-radius: 5px;
+      position: relative;
+    }
+    .schedule--Input {
+      width: max-content;
+      height: 100%;
+      border-radius: 6px;
+      padding: 4px;
+      background-color: inherit;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+        rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      z-index: 99;
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      backdrop-filter: blur(20px) saturate(180%);
+    }
+
+    .weekdays {
+      flex: 1;
+      height: 80%;
+      overflow: hidden;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      word-wrap: nowrap;
+      text-wrap: nowrap;
+      padding: 0 5px;
+    }
+  }
+}

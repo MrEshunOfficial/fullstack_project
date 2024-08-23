@@ -1,0 +1,268 @@
+.schedule--output {
+  .taskComponent {
+    flex: 2;
+    height: 10rem;
+    max-height: max-content;
+    margin: 10px 0;
+    padding: 2.5px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease-in-out;
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+        rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+
+    .event-title {
+      flex: 0.5;
+      height: 100%;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-items: start;
+      justify-content: center;
+      color: white;
+      border-radius: 6px;
+
+      p {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        margin: 3.5px 0;
+
+        span {
+          font-size: 13px;
+          display: flex;
+          align-items: center;
+          column-gap: 6px;
+        }
+
+        strong {
+          font-size: 15px;
+          margin-left: 1rem;
+          color: rgb(167, 167, 167);
+        }
+      }
+    }
+
+    .task-description {
+      flex: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      row-gap: 5px;
+      padding: 6px;
+
+      .task {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        padding: 6px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+          rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+        .edit-task {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          padding: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.4s ease-in-out;
+
+          &:hover {
+            background-color: rgba(175, 174, 174, 0.74);
+            border-radius: 50%;
+            border: none;
+          }
+          &:active {
+            transform: translateY(3.5px);
+          }
+        }
+      }
+      .task-reminder {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 2rem;
+        padding: 5px;
+        font-size: 15px;
+        text-wrap: nowrap;
+        border-top: 1px solid tomato;
+
+        .reminders {
+          font-weight: 600;
+          font-size: inherit;
+          text-transform: capitalize;
+        }
+      }
+    }
+
+    .task--management {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      .container-box {
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: end;
+
+        .box-one,
+        ul {
+          flex: 1;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          column-gap: 1.5rem;
+          cursor: pointer;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+            rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        }
+
+        ul {
+          border-bottom: none;
+          color: white;
+
+          .share,
+          .print,
+          .delete,
+          .custome {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            margin-top: 2px;
+            transition: all 300ms ease-in-out;
+            font-size: 18px;
+            position: relative;
+
+            &:hover {
+              opacity: 0.75;
+            }
+            &:active {
+              transform: translateY(4px);
+            }
+            &:hover::after {
+              position: absolute;
+              bottom: 90%;
+              left: -30%;
+              font-size: 12px;
+            }
+          }
+          .share:hover::after {
+            content: "Share";
+          }
+          .print:hover::after {
+            content: "Print";
+          }
+          .delete:hover::after {
+            content: "Delete";
+          }
+          .custome:hover::after {
+            content: "Customize";
+            left: -100%;
+          }
+        }
+      }
+
+      .focus-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        border: 1px solid rgba(128, 128, 128, 0.25);
+        height: 2.5rem;
+        font-size: 13px;
+
+        .play,
+        .pause,
+        .reset,
+        .start,
+        .exit {
+          position: relative;
+          padding: 2.5px;
+          transition: all 0.3s ease-in-out;
+          &:hover::after {
+            position: absolute;
+            bottom: 80%;
+            left: -25%;
+            font-size: 12px;
+          }
+
+          &:active {
+            transform: translateY(3.5px);
+          }
+        }
+        .play {
+          &:hover::after {
+            content: "Continue";
+            left: -100%;
+          }
+        }
+        .pause {
+          &:hover::after {
+            content: "Pause";
+          }
+        }
+        .reset {
+          &:hover::after {
+            content: "Reset";
+          }
+        }
+        .start {
+          &:hover::after {
+            content: "start";
+          }
+        }
+        .exit {
+          &:hover::after {
+            content: "Exit";
+          }
+        }
+      }
+    }
+  }
+  .urgent--style {
+    background-color: rgb(4 47 46);
+    color: white;
+  }
+}
+
+@keyframes startFocus {
+  0% {
+    opacity: 1;
+    color: green;
+  }
+  100% {
+    opacity: 0;
+    color: white;
+  }
+}
+
+.onstartFocus {
+  animation: startFocus 1.5s infinite ease-in;
+}
